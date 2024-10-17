@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="../static/css/styles.css" th:href="@{/css/styles.css}" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+
+<a th:href="@{/}">Home</a>
+
+    <h3 th:text="'Welcome ' + ${user.username} + '!'"></h3>
+
+    <h2>Users</h2>
+    <th:block th:each="someUser : ${users}">
+        <a th:href="@{'user/details/' + ${someUser.id}}"> <p th:text="${someUser.username}"></p></a>
+    </th:block>
+</body>
+</html>
